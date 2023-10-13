@@ -16,7 +16,7 @@ We can convert this kind of reading into a mathematical expression: a sum of all
 This is intuitive in base-10, but we can use this to easily convert a binary number into its more understandeable decimal form. This time, however, our digits are only 0 or 1, and our places are to powers of two. <br>
 Now that we can convert binary to decimal, you may be interested in the reverse. To do that, we need to use the logarithm operation with a base of 2. That will get us the largest 1 digit in our binary representation. We then subtract the value of the digit we put down from the number, and repeat the process until we reach zero. Any places that do not have a 1 are filled in with a zero.<br>
 We want to understand binary numbers to better understand how or why things are in the computing world. This leads us into the byte.<br>
-A byte is simply a sequence of 8 bits. It represents the smallest unit of memory that is typically relevant. It is rare to deal with bit to bit manipulation. With our understanding of binary numbers, we know that a byte has a range of 511 values.<br>
+A byte is simply a sequence of 8 bits. It represents the smallest unit of memory that is typically relevant. It is rare to deal with bit to bit manipulation. With our understanding of binary numbers, we know that a byte has a range of 512 values.<br>
 Now we can discuss datatypes. A datatype is a way to interpret a bundle of bytes in a form that is not binary.<br>
 Numbers:
 <table>
@@ -25,6 +25,12 @@ Numbers:
 		<th>Type</th>
 		<th>Bytes</th>
 		<th>Range</th>
+	</tr>
+	<tr>
+		<th>char</th>
+		<th>Integer</th>
+		<th>1</th>
+		<th>-128 to 127 </th>
 	</tr>
 	<tr>
 		<th>short</th>
@@ -48,16 +54,24 @@ Numbers:
 		<th>Float</th>
 		<th>Decimal</th>
 		<th>4</th>
-		<th>1.175494351 * 10^-38 to 3.402823466 * 10^38</th>
+		<th>+/-1.175494351 * 10^-38 to +/-3.402823466 * 10^38</th>
 	</tr>
 	<tr>
 		<th>Double</th>
 		<th>Decimal</th>
 		<th>8</th>
-		<th>2.2250738585072014 * 10^-308 to 1.7976931348623158 * 10^308</th>
+		<th>+/-2.2250738585072014 * 10^-308 to +/-1.7976931348623158 * 10^308</th>
 	</tr>
 </table>
-
-
+<br>
+Integers are converted from binary directly to decimal. However, their first bit is used to store the sign, using 1 to denote a negative. For example, a char is 8 bits, but 7 are used to store the value. 0000 0000 is 0. 1000 0000 is -1. 1111 1111 is -128. 0111 1111 is 127. Alternatively, you can have an unsigned variable, where all the bits are used for the value. An unsigned char reaches from 0 to 256.<br>
+Floating-points are non-integer numbers, decimals. They are stored based on the scientific notation, but in base-2, in a notation called IEEE 754.<br>
+Note that IEEE 754 is not something you need to intimately know for many coding experiences.<br>
+Anyways when talking about IEEE, we must first discuss floating point binary. Just as how a decimal place after the point in a number is a negative exponent of 10, binary floating point is constructed using negative exponents of base 2. <strong>*Image Please*</strong> <br>
+So when you have a decimal floating point number, you need to convert it into a binary floating point. Then you need to "move the point" like in scientific notation so that you have a 1 left of the decimal point. Moving the point to the left gives you a factor of 2^1. Moving the point to the right gives you a factor of 2^-1. This gives you something like (-)1.x * 2^y, where x is the fractional amount in binary, and y is an integer exponent in decimal, positive or negative. <br>
+The IEEE 754 format breaks down a floating point binary number into three parts: the sign, the biased exponent, and the fraction. This bias is used to store negative and positive numbers in binary based on their poisition relative to a shift, in this case the middle. In a float, this bias is 127. In longs, the bias is 1023. These values come from the number of bits used to make up the exponent. You apply the bias by simply adding the bias to the exponent. You'll then want to convert that biased exponent into a binary integer.<br>
+Then, you fill in each part of the floating point based on the data type. Note that the fraction is everything right of the decimal. When reading a floating point number, the computer will know that there is supposed to be a 1 before the decimal point.<br>
+Float: 1 bit sign, 8 bit exponent, 23 bit fraction<br>
+Double: 1 bit sign, 11 bit exponent, 52 bit fraction<br>
 </body>
 </html>
