@@ -73,5 +73,10 @@ The IEEE 754 format breaks down a floating point binary number into three parts:
 Then, you fill in each part of the floating point based on the data type. Note that the fraction is everything right of the decimal. When reading a floating point number, the computer will know that there is supposed to be a 1 before the decimal point.<br>
 Float: 1 bit sign, 8 bit exponent, 23 bit fraction<br>
 Double: 1 bit sign, 11 bit exponent, 52 bit fraction<br>
+There are 3 more simple datatypes that you need to understand.
+First is the boolean: a True or False value. You may think this only requires 1 bit, but it requires 2 bytes of storage. Right now, I am not sure as to why, but hopefully I can get back to that. <br>
+The second is the char. Earlier we talked about chars as 1 byte integers. However, many programming languages are capable of translating those chars into text, or symbols. This is done by the ASCII conversion chart, an agreed upon system of 256 characters mapped onto specific numbers/binary patterns. Many times, a program can fluidly treat characters as text symbols and numbers. <strong> INCLUDE ASCII CHART</strong><br>
+The last simple datatype is called a pointer, which like a char, is a specific way of interpreting a number. This time it is a long, usually. Keep this name in mind because it becomes easier to understand once we go over the next idea. <br>
+
 </body>
 </html>
