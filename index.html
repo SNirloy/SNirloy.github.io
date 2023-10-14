@@ -5,6 +5,7 @@
 </head>
 
 <body>
+<h1>Bits and Bytes</h1><br>
 Before learning anything about programming languages or whatever, we need to talk about the bit.<br>
 A bit is simply a 0 or 1 value. This comes from the microscopic switches inside of the computer that control the signals passing through the hardware. These switches can either be off or on, to which humans assigned the values of 0 and 1. <br>
 This bit is the basis for all software, controlling the operations of mathematics and logic that become everything in our computers. That is why I deem it necessary to start here.<br>
@@ -18,6 +19,7 @@ Now that we can convert binary to decimal, you may be interested in the reverse.
 We want to understand binary numbers to better understand how or why things are in the computing world. This leads us into the byte.<br>
 A byte is simply a sequence of 8 bits. It represents the smallest unit of memory that is typically relevant. It is rare to deal with bit to bit manipulation. With our understanding of binary numbers, we know that a byte has a range of 512 values.<br>
 Now we can discuss datatypes. A datatype is a way to interpret a bundle of bytes in a form that is not binary.<br>
+<h1>Simple Data Types</h1><br>
 Numbers:
 <table>
 	<tr>
@@ -77,6 +79,25 @@ There are 3 more simple datatypes that you need to understand.
 First is the boolean: a True or False value. You may think this only requires 1 bit, but it requires 2 bytes of storage. Right now, I am not sure as to why, but hopefully I can get back to that. <br>
 The second is the char. Earlier we talked about chars as 1 byte integers. However, many programming languages are capable of translating those chars into text, or symbols. This is done by the ASCII conversion chart, an agreed upon system of 256 characters mapped onto specific numbers/binary patterns. Many times, a program can fluidly treat characters as text symbols and numbers. <strong> INCLUDE ASCII CHART</strong><br>
 The last simple datatype is called a pointer, which like a char, is a specific way of interpreting a number. This time it is a long, usually. Keep this name in mind because it becomes easier to understand once we go over the next idea. <br>
+<h1>Variable</h1><br>
+A variable is a way of storing values in the computer's memory. A variable needs to be initialized (setting the name and space of the variable) and assigned a value (giving the variable a value to hold). Afterwards, you can call upon it using the variable's name. The variable's value can be manipulated and reassigned. It is fundamentally very simple, but we can go a little further. <br>
+<strong>INSERT EXAMPLE FOR VARIABLES</strong><br>
+When a variable is stored, it has 3 parts: a name, a value, and an address. This address is a long that refers to a spot in the memory of a computer: a pointer. The length of a pointer depends on the kind of processor your computer has. A 64-bit processor means a long. A 32-bit pointer will have int pointers/addresses.<br>
+Pointers are an interesting datatype because they are so intimately tied to the computer's thinking. You can use the pointer in order to interact with the value stored there. But, you can also interact with the pointer itself. However, this often can leave values floating around in the memory. That is because you changed the address, so it will not refer to the same spot in the memory. Pointers are instrumental in bit manipulations. If pointers boggle your mind still, have no worries. We'll become intimately familiar with them when we go over C. As for now, think of them as addresses to an area of your computer's memory. <br>
+<h1>Operations</h1><br>
+We have spent a lot of time talking about the basic values within a computer. But now, let's discuss using those values. <br>
+We'll start with the mathematical operators.<br>
+<ul>
+	<li>'+' adds two numbers</li>
+	<li>'-' subtracts the second number from the first</li>
+	<li>'*' multiplies the two numbers</li>
+	<li>'/' divides the first number by the second</li>
+	<li>'%' gives you the remainder that comes from dividing the first number by the second</li>
+</ul><br>
+These are your key 5 operations when programming. We distinguish operators from functions because of the use of symbols instead of words. It is also important to note that different programming languages implement these operators differently, or even add extra operators <strong>PYTHON</strong>.<br>
+These operators are used with numbers to create mathematical expressions. There are 3 styles of expressions: prefix, infix, postfix. You are likely to be most familiar with infix, where the operator comes between the numbers. Prefix has the operator before the numbers, and postfix after. While these other two may seem confusing to you now, they make a lot of sense in the computing world. Many early calculators operated on prefix or postfix because of how easy they are two implement when compared to infix. Infix is the only notation that requires an order of operations.<br>
+<strong>Provide Examples of the 3 forms of expressions</strong><br>
+<h1>Functions</h1><br>
 
 </body>
 </html>
