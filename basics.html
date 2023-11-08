@@ -48,10 +48,10 @@ For a binary number, each place can only hold 2 digits, 0 and 1. If you exceed t
 <br>
 This idea may become clearer as we look at how to read these numbers. In the decimal system, we call the places names like: ones, tens, hundreds, thousands, etc. The number in that place represents how many of that place we have in the number (like how many ones, or hundreds). In a binary number, the places would be called the ones, the twos, the fours, the eights, the sixteens, doubling every place.<br>
 We can convert this kind of reading into a mathematical expression: a sum of all the products between the digit and their place (See example if the wording is confusing). <br>
-<img src="images/BinaryToDec.jpg" width="938px" height="316px"><br>
+<img src="images/BinaryToDec.jpg" width="100%" height="auto"><br>
 This is intuitive in base-10, but we can use this to easily convert a binary number into its more understandeable decimal form. This time, however, our digits are only 0 or 1, and our places are to powers of two. <br>
 Now that we can convert binary to decimal, you may be interested in the reverse. To do that, we need to use the logarithm operation with a base of 2. That will get us the largest 1 digit in our binary representation. We then subtract the value of the digit we put down from the number, and repeat the process until we reach zero. Any places that do not have a 1 are filled in with a zero.<br>
-<img src="images/DecToBinary.jpg" width="1000px" height="686px"><br>
+<img src="images/DecToBinary.jpg" width="100%" height="auto"><br>
 We want to understand binary numbers to better understand how or why things are in the computing world.<br>
 A <strong>byte</strong> is a binary number of 8 bits. It represents the smallest unit of memory that is typically relevant. It is rare to deal with bit to bit manipulation. With our understanding of binary numbers, we know that a byte has a range of 512 values.<br>
 Now we can discuss datatypes. A datatype is a way to interpret a bundle of bytes in a form that is not binary.<br>

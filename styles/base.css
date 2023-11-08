@@ -5,6 +5,8 @@ body{
   font-family: monospace;
   font-size: 15px;
   line-height: 2.0;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 strong{
   font-size: 17px;
