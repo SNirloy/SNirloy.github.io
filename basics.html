@@ -6,8 +6,8 @@
 </head>
 
 <body>
-<h1>Fundamentals</h1><br>
-<h2>Bits and Bytes</h2><br>
+<h1>Fundamentals<br></h1>
+<h2>Bits and Bytes<br></h2>
 A <strong>bit</strong> is simply a 0 or 1 value. This comes from the microscopic switches inside of the computer that control the signals passing through the hardware. These switches can either be off or on, to which humans assigned the values of 0 and 1. <br>
 This bit is the basis for all software, controlling the operations of mathematics and logic that become everything in our computers. That is why I deem it necessary to start here.<br>
 <strong>Binary numbers</strong> are a collection of bits that are read together. They operate on a base-2 system, in contrast to the familiar base-10 system of decimals. <br>
@@ -55,7 +55,7 @@ Now that we can convert binary to decimal, you may be interested in the reverse.
 We want to understand binary numbers to better understand how or why things are in the computing world.<br>
 A <strong>byte</strong> is a binary number of 8 bits. It represents the smallest unit of memory that is typically relevant. It is rare to deal with bit to bit manipulation. With our understanding of binary numbers, we know that a byte has a range of 512 values.<br>
 Now we can discuss datatypes. A datatype is a way to interpret a bundle of bytes in a form that is not binary.<br>
-<h2>Simple Data Types</h2><br>
+<h2>Simple Data Types<br></h2>
 <strong>NUMBERS</strong>
 <table>
 	<tr>
@@ -111,16 +111,19 @@ The IEEE 754 format breaks down a floating point binary number into three parts:
 Then, you fill in each part of the floating point based on the data type. Note that the fraction is everything right of the decimal. When reading a floating point number, the computer will know that there is supposed to be a 1 before the decimal point.<br>
 Float: 1 bit sign, 8 bit exponent, 23 bit fraction<br>
 Double: 1 bit sign, 11 bit exponent, 52 bit fraction<br> <br>
+
 There are 3 more simple datatypes that you need to understand.<br>
 First is the <strong>boolean</strong>: a True or False value. You may think this only requires 1 bit, but it requires 2 bytes of storage. Right now, I am not sure as to why, but hopefully I can get back to that. <br>
 The second is the <strong>char</strong>. Earlier we talked about chars as 1 byte integers. However, many programming languages are capable of translating those chars into text, or symbols. This is done by the ASCII conversion chart, an agreed upon system of 256 characters mapped onto specific numbers/binary patterns. Many times, a program can fluidly treat characters as text symbols and numbers. <strong> INCLUDE ASCII CHART</strong><br>
 The last simple datatype is called a <strong>pointer</strong>, which like a char, is a specific way of interpreting a number. This time it is a long, usually. Keep this name in mind because it becomes easier to understand once we go over the next idea. <br>
-<h2>Variable</h2><br>
+
+<h2>Variable<br></h2>
 A <strong>variable</strong> is a way of storing values in the computer's memory. A variable needs to be <strong>initialized</strong> (setting the name and space of the variable) and <strong>assigned</strong> a value (giving the variable a value to hold). Afterwards, you can call upon it using the variable's name. The variable's value can be manipulated and reassigned. They way to invoke these processes of initialization, assignment, and reassignment are based on the language that you use.<br>
 <strong>INSERT EXAMPLE FOR VARIABLES</strong><br>
 When a variable is stored, it has 3 parts: a name, a value, and an address. This address is a long that refers to a spot in the memory of a computer: a pointer. The length of a pointer depends on the kind of processor your computer has. A 64-bit processor means a long. A 32-bit pointer will have int pointers/addresses.<br>
 Pointers are an interesting datatype because they are so intimately tied to the computer's thinking. You can use the pointer in order to interact with the value stored there. But, you can also interact with the pointer itself. However, this often can leave values floating around in the memory. That is because you changed the address, so it will not refer to the same spot in the memory. Pointers are instrumental in bit manipulations. If pointers boggle your mind still, have no worries. We'll become intimately familiar with them when we go over C. As for now, think of them as addresses to an area of your computer's memory. <br>
-<h2>Operations</h2><br>
+
+<h2>Operations<br></h2>
 We have spent a lot of time talking about the basic values within a computer. But now, let's discuss using those values. <br>
 We'll start with the <strong>mathematical operators</strong>.<br>
 <ul>
@@ -268,15 +271,59 @@ Finally, we have <strong>comparative operators</strong>, which turn numbers into
 	<li>x '==' y results in true if x is equal to y. Else, the statement is false.</li>
 	<li>x '!=' y results in true if x is not equal to y. If x equals y, the statement is false.</li>
 </ul><br>
-<h2>Functions</h2><br>
+
+<h2>Functions<br></h2>
 To round out our bare, bare fundamentals, we must talk about <strong>functions</strong>. Just as variables store values, a function will store segments of code. Anything you can do outside of a function, you can put inside of it. Why would you do that? Putting segments of code allows you to reuse it without having to type it all out. The less typing you have to do, the fewer chances you have of making silly mistakes and typos. The way functions are written are language specific. These examples are pseudocode.<br>
 But functions can do so much more than reiterate the same block of code. Functions can be made with <strong>parameters</strong>. These are placeholder variables made with the function that can be used within the function, and only within that function. When the function is called with its name, the same number of <strong>arguments</strong> are given with it. With that function call, the code is run with those arguments substituting in the place of its respective parameter. This allows a function to be used on a variety of values and variables.<br>
 Adding to the flexibility of functions are conditionals. <strong>Conditionals</strong> are usually their own thing, but they see the most use in functions for decision making. They can be used outside if the language permits it (You'll see when we go into the language lessons). They have three parts: if, else if (elif), and else. <br>
 If statements have a boolean statement and a code block. If the boolean statement is equivalent to true, then that code block is run. If an if statement has an else statement, then the code block related to that will run. <br>
+<strong>Written Template</strong><br>
 Else statements will only run if the boolean expression of their if statement is false.<br>
+<strong>Written Template</strong><br>
 Else if (elif) statements combine the two kinds of statements. They have a boolean expression like an if statement, but will only run if previous if and elif statements are false.<br>
+<strong>Written Template</strong><br>
 When you have a chain of if, elifs, and else statements, the program starts with the if statement. If it is false, it will go on to the next elif statement. If all the elifs' boolean statements also turn out false, then the else code block will run.<br>
+<strong>Written Template</strong><br>
 Furthermore, you can nest conditionals, each with their own chains of ifs, elifs, and elses. When doing so, you must be careful on what level each conditional statement is on.<br>
+<strong>Here are some quick pseudocode examples of the conditionals</strong>
+<pre><code>
+function isPositive(num){
+	if (num > 0){
+		print("Positive\n");
+	}
+}
+
+function isItPositive(num){
+	if (num <= 0){
+		print("Not ");
+	}
+	print("Positive\n");
+}
+
+function posOrNegative(num){
+	if (num < 0){
+		print("Negative\n");
+	}
+	else if (num > 0){
+		print("Postive\n");
+	}
+	else{
+		print("Zero");
+	}
+}
+-----------------------------------------
+isPositive(0) -> 
+isPositive(1) -> Positive
+isPositive(-1) ->
+
+isItPositive(0) -> Not Positive
+isItPositive(1) -> Positive
+isItPositive(-1) -> Not Positive
+
+posOrNegative(0) -> Zero
+posOrNegative(1) -> Positive
+posOrNegative(-1) -> Negative
+</code></pre>
 The final key basic of a function is the <strong>return value</strong>. A function may, but not always, end in a return statement. When that return statement is reached, no more code in the function is run. That is because the return value of the function is the final value that will replace the call of the function. If you have a function <strong>invocation</strong> (call) in an assignment, expression, or whatever, that function call is internally replaced with the return value, given its arguments, when evaluating.<br>
 </body>
 </html>
