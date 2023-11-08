@@ -6,22 +6,57 @@
 </head>
 
 <body>
-<h1>Bits and Bytes</h1><br>
-Before learning anything about programming languages or whatever, we need to talk about the bit.<br>
-A bit is simply a 0 or 1 value. This comes from the microscopic switches inside of the computer that control the signals passing through the hardware. These switches can either be off or on, to which humans assigned the values of 0 and 1. <br>
+<h1>Fundamentals</h1><br>
+<h2>Bits and Bytes</h2><br>
+A <strong>bit</strong> is simply a 0 or 1 value. This comes from the microscopic switches inside of the computer that control the signals passing through the hardware. These switches can either be off or on, to which humans assigned the values of 0 and 1. <br>
 This bit is the basis for all software, controlling the operations of mathematics and logic that become everything in our computers. That is why I deem it necessary to start here.<br>
-You are likely to be familiar with a bit from binary numbers, so let's start with that. Binary numbers operate on a base-2 system, in contrast to the familiar base-10 system of decimals. <br>
+<strong>Binary numbers</strong> are a collection of bits that are read together. They operate on a base-2 system, in contrast to the familiar base-10 system of decimals. <br>
 The decimal system is called base-10 because of its 10 digits: 0 - 9. A single place in the number can only hold upto a value of 9. If we exceed that, then we need to carry a 1 to the next higher place, and return our previous place to 0 (empty). <br>
 For a binary number, each place can only hold 2 digits, 0 and 1. If you exceed the value of 1, then you must go onwards to the next place, and return the previous place to 0.<br>
+<table>
+	<tr>
+		<th>Decimal</th>
+		<th>0</th>
+		<th>1</th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+		<th>6</th>
+		<th>7</th>
+		<th>8</th>
+		<th>9</th>
+		<th>10</th>
+		<th>11</th>
+	</tr>
+	<tr>
+		<th>Binary</th>
+		<th>0</th>
+		<th>1</th>
+		<th>10</th>
+		<th>11</th>
+		<th>100</th>
+		<th>101</th>
+		<th>110</th>
+		<th>111</th>
+		<th>1000</th>
+		<th>1001</th>
+		<th>1010</th>
+		<th>1011</th>
+	</tr>
+</table>
+<br>
 This idea may become clearer as we look at how to read these numbers. In the decimal system, we call the places names like: ones, tens, hundreds, thousands, etc. The number in that place represents how many of that place we have in the number (like how many ones, or hundreds). In a binary number, the places would be called the ones, the twos, the fours, the eights, the sixteens, doubling every place.<br>
 We can convert this kind of reading into a mathematical expression: a sum of all the products between the digit and their place (See example if the wording is confusing). <br>
+<img src="images/BinaryToDec.jpg" width="938px" height="316px"><br>
 This is intuitive in base-10, but we can use this to easily convert a binary number into its more understandeable decimal form. This time, however, our digits are only 0 or 1, and our places are to powers of two. <br>
 Now that we can convert binary to decimal, you may be interested in the reverse. To do that, we need to use the logarithm operation with a base of 2. That will get us the largest 1 digit in our binary representation. We then subtract the value of the digit we put down from the number, and repeat the process until we reach zero. Any places that do not have a 1 are filled in with a zero.<br>
-We want to understand binary numbers to better understand how or why things are in the computing world. This leads us into the byte.<br>
-A byte is simply a sequence of 8 bits. It represents the smallest unit of memory that is typically relevant. It is rare to deal with bit to bit manipulation. With our understanding of binary numbers, we know that a byte has a range of 512 values.<br>
+<img src="images/DecToBinary.jpg" width="1000px" height="686px"><br>
+We want to understand binary numbers to better understand how or why things are in the computing world.<br>
+A <strong>byte</strong> is a binary number of 8 bits. It represents the smallest unit of memory that is typically relevant. It is rare to deal with bit to bit manipulation. With our understanding of binary numbers, we know that a byte has a range of 512 values.<br>
 Now we can discuss datatypes. A datatype is a way to interpret a bundle of bytes in a form that is not binary.<br>
-<h1>Simple Data Types</h1><br>
-Numbers:
+<h2>Simple Data Types</h2><br>
+<strong>NUMBERS</strong>
 <table>
 	<tr>
 		<th>Name</th>
@@ -67,27 +102,27 @@ Numbers:
 	</tr>
 </table>
 <br>
-Integers are converted from binary directly to decimal. However, their first bit is used to store the sign, using 1 to denote a negative. For example, a char is 8 bits, but 7 are used to store the value. 0000 0000 is 0. 1000 0000 is -1. 1111 1111 is -128. 0111 1111 is 127. Alternatively, you can have an unsigned variable, where all the bits are used for the value. An unsigned char reaches from 0 to 256.<br>
-Floating-points are non-integer numbers, decimals. They are stored based on the scientific notation, but in base-2, in a notation called IEEE 754.<br>
+<strong>Integers</strong> are converted from binary directly to decimal. However, their first bit is used to store the sign, using 1 to denote a negative. For example, a char is 8 bits, but 7 are used to store the value. 0000 0000 is 0. 1000 0000 is -1. 1111 1111 is -128. 0111 1111 is 127. Alternatively, you can have an <strong>unsigned number</strong>, where all the bits are used for the value. An unsigned char reaches from 0 to 256.<br>
+<strong>Floating-points</strong> are non-integer numbers, decimals. They are stored based on the scientific notation, but in base-2, in a notation called IEEE 754.<br>
 Note that IEEE 754 is not something you need to intimately know for many coding experiences.<br>
 Anyways when talking about IEEE, we must first discuss floating point binary. Just as how a decimal place after the point in a number is a negative exponent of 10, binary floating point is constructed using negative exponents of base 2. <strong>*Image Please*</strong> <br>
 So when you have a decimal floating point number, you need to convert it into a binary floating point. Then you need to "move the point" like in scientific notation so that you have a 1 left of the decimal point. Moving the point to the left gives you a factor of 2^1. Moving the point to the right gives you a factor of 2^-1. This gives you something like (-)1.x * 2^y, where x is the fractional amount in binary, and y is an integer exponent in decimal, positive or negative. <br>
 The IEEE 754 format breaks down a floating point binary number into three parts: the sign, the biased exponent, and the fraction. This bias is used to store negative and positive numbers in binary based on their poisition relative to a shift, in this case the middle. In a float, this bias is 127. In longs, the bias is 1023. These values come from the number of bits used to make up the exponent. You apply the bias by simply adding the bias to the exponent. You'll then want to convert that biased exponent into a binary integer.<br>
 Then, you fill in each part of the floating point based on the data type. Note that the fraction is everything right of the decimal. When reading a floating point number, the computer will know that there is supposed to be a 1 before the decimal point.<br>
 Float: 1 bit sign, 8 bit exponent, 23 bit fraction<br>
-Double: 1 bit sign, 11 bit exponent, 52 bit fraction<br>
-There are 3 more simple datatypes that you need to understand.
-First is the boolean: a True or False value. You may think this only requires 1 bit, but it requires 2 bytes of storage. Right now, I am not sure as to why, but hopefully I can get back to that. <br>
-The second is the char. Earlier we talked about chars as 1 byte integers. However, many programming languages are capable of translating those chars into text, or symbols. This is done by the ASCII conversion chart, an agreed upon system of 256 characters mapped onto specific numbers/binary patterns. Many times, a program can fluidly treat characters as text symbols and numbers. <strong> INCLUDE ASCII CHART</strong><br>
-The last simple datatype is called a pointer, which like a char, is a specific way of interpreting a number. This time it is a long, usually. Keep this name in mind because it becomes easier to understand once we go over the next idea. <br>
-<h1>Variable</h1><br>
-A variable is a way of storing values in the computer's memory. A variable needs to be initialized (setting the name and space of the variable) and assigned a value (giving the variable a value to hold). Afterwards, you can call upon it using the variable's name. The variable's value can be manipulated and reassigned. They way to invoke these processes of initialization, assignment, and reassignment are based on the language that you use.<br>
+Double: 1 bit sign, 11 bit exponent, 52 bit fraction<br> <br>
+There are 3 more simple datatypes that you need to understand.<br>
+First is the <strong>boolean</strong>: a True or False value. You may think this only requires 1 bit, but it requires 2 bytes of storage. Right now, I am not sure as to why, but hopefully I can get back to that. <br>
+The second is the <strong>char</strong>. Earlier we talked about chars as 1 byte integers. However, many programming languages are capable of translating those chars into text, or symbols. This is done by the ASCII conversion chart, an agreed upon system of 256 characters mapped onto specific numbers/binary patterns. Many times, a program can fluidly treat characters as text symbols and numbers. <strong> INCLUDE ASCII CHART</strong><br>
+The last simple datatype is called a <strong>pointer</strong>, which like a char, is a specific way of interpreting a number. This time it is a long, usually. Keep this name in mind because it becomes easier to understand once we go over the next idea. <br>
+<h2>Variable</h2><br>
+A <strong>variable</strong> is a way of storing values in the computer's memory. A variable needs to be <strong>initialized</strong> (setting the name and space of the variable) and <strong>assigned</strong> a value (giving the variable a value to hold). Afterwards, you can call upon it using the variable's name. The variable's value can be manipulated and reassigned. They way to invoke these processes of initialization, assignment, and reassignment are based on the language that you use.<br>
 <strong>INSERT EXAMPLE FOR VARIABLES</strong><br>
 When a variable is stored, it has 3 parts: a name, a value, and an address. This address is a long that refers to a spot in the memory of a computer: a pointer. The length of a pointer depends on the kind of processor your computer has. A 64-bit processor means a long. A 32-bit pointer will have int pointers/addresses.<br>
 Pointers are an interesting datatype because they are so intimately tied to the computer's thinking. You can use the pointer in order to interact with the value stored there. But, you can also interact with the pointer itself. However, this often can leave values floating around in the memory. That is because you changed the address, so it will not refer to the same spot in the memory. Pointers are instrumental in bit manipulations. If pointers boggle your mind still, have no worries. We'll become intimately familiar with them when we go over C. As for now, think of them as addresses to an area of your computer's memory. <br>
-<h1>Operations</h1><br>
+<h2>Operations</h2><br>
 We have spent a lot of time talking about the basic values within a computer. But now, let's discuss using those values. <br>
-We'll start with the mathematical operators.<br>
+We'll start with the <strong>mathematical operators</strong>.<br>
 <ul>
 	<li>'+' adds two numbers</li>
 	<li>'-' subtracts the second number from the first</li>
@@ -119,7 +154,7 @@ These operators are used with numbers to create mathematical expressions. There 
 </table>
 <br>
 <strong>Provide Extra on Showing How Postfix and Prefix Works</strong><br>
-We also have the logical operators, which work on booleans. There are 4 boolean operators to build boolean expressions.<br>
+We also have the <strong>logical operators</strong>, which work on booleans. There are 4 boolean operators to build boolean expressions.<br>
 <ul>
 	<li>x '&&' y ('and') results in true if both x is true and y is true. It is false in all other cases.</li>
 <table>
@@ -224,7 +259,7 @@ We also have the logical operators, which work on booleans. There are 4 boolean 
 </table>
 
 </ul><br>
-Finally, we have comparative operators, which turn numbers into boolean values. These are very useful for when we go over decision making in code.<br>
+Finally, we have <strong>comparative operators</strong>, which turn numbers into boolean values. These are very useful for when we go over decision making in code.<br>
 <ul>
 	<li>x '>' y results in true if x is more than y. Else, the statement is false.</li>
 	<li>x '>=' y results in true if x is more than y or x is equal to y. Else, the statement is false.</li>
@@ -233,10 +268,15 @@ Finally, we have comparative operators, which turn numbers into boolean values. 
 	<li>x '==' y results in true if x is equal to y. Else, the statement is false.</li>
 	<li>x '!=' y results in true if x is not equal to y. If x equals y, the statement is false.</li>
 </ul><br>
-<h1>Functions</h1><br>
-To round out our bare, bare fundamentals, we must talk about functions. Just as variables store values, a function will store segments of code. Anything you can do outside of a function, you can put inside of it. Why would you do that? Putting segments of code allows you to reuse it without having to type it all out. The less typing you have to do, the fewer chances you have of making silly mistakes and typos.<br>
+<h2>Functions</h2><br>
+To round out our bare, bare fundamentals, we must talk about <strong>functions</strong>. Just as variables store values, a function will store segments of code. Anything you can do outside of a function, you can put inside of it. Why would you do that? Putting segments of code allows you to reuse it without having to type it all out. The less typing you have to do, the fewer chances you have of making silly mistakes and typos. The way functions are written are language specific. These examples are pseudocode.<br>
 But functions can do so much more than reiterate the same block of code. Functions can be made with <strong>parameters</strong>. These are placeholder variables made with the function that can be used within the function, and only within that function. When the function is called with its name, the same number of <strong>arguments</strong> are given with it. With that function call, the code is run with those arguments substituting in the place of its respective parameter. This allows a function to be used on a variety of values and variables.<br>
-Adding to the flexibility of functions are conditionals. Conditionals are usually their own thing, but they see the most use in functions for decision making. They can be used outside if the language permits it (You'll see when we go into the language lessons). They have three parts: if, else if (elif), and else. If statements have a boolean statement and a code block. If the boolean statement is equivalent to true, then that code block is run. If an if statement has an else statement, then the code block related to that will run. An else statement will only run if the boolean expression of the if statement is false. Else if (elif) statements combine the two kinds of statements. They have a boolean expression like an if statement, but will only run if previous if and elif statements are false. When you have a chain of if, elifs, and else statements, the program starts with the if statement. If it is false, it will go on to the next elif statement. If all the elifs' boolean statements also turn out false, then the else code block will run.<br>
-The final key basic of a function is the return value. A function may, but not always, end in a return statement. When that return statement is reached, no more code in the function is run. That is because the return value of the function is the final value that will replace the call of the function. If you have a function <strong>invocation</strong> (call) in an assignment, expression, or whatever, that function call is internally replaced with the return value, given its arguments, when evaluating.<br>
+Adding to the flexibility of functions are conditionals. <strong>Conditionals</strong> are usually their own thing, but they see the most use in functions for decision making. They can be used outside if the language permits it (You'll see when we go into the language lessons). They have three parts: if, else if (elif), and else. <br>
+If statements have a boolean statement and a code block. If the boolean statement is equivalent to true, then that code block is run. If an if statement has an else statement, then the code block related to that will run. <br>
+Else statements will only run if the boolean expression of their if statement is false.<br>
+Else if (elif) statements combine the two kinds of statements. They have a boolean expression like an if statement, but will only run if previous if and elif statements are false.<br>
+When you have a chain of if, elifs, and else statements, the program starts with the if statement. If it is false, it will go on to the next elif statement. If all the elifs' boolean statements also turn out false, then the else code block will run.<br>
+Furthermore, you can nest conditionals, each with their own chains of ifs, elifs, and elses. When doing so, you must be careful on what level each conditional statement is on.<br>
+The final key basic of a function is the <strong>return value</strong>. A function may, but not always, end in a return statement. When that return statement is reached, no more code in the function is run. That is because the return value of the function is the final value that will replace the call of the function. If you have a function <strong>invocation</strong> (call) in an assignment, expression, or whatever, that function call is internally replaced with the return value, given its arguments, when evaluating.<br>
 </body>
 </html>
