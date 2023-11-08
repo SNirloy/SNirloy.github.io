@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bitter Bill Bet Betty to Byte a Bit of Billy's Better Bottle.</title>
+<title>Fundamentals of Programming</title>
 </head>
 
 <body>
@@ -96,13 +96,132 @@ We'll start with the mathematical operators.<br>
 </ul><br>
 These are your key 5 operations when programming. We distinguish operators from functions because of the use of symbols instead of words. It is also important to note that different programming languages implement these operators differently, or even add extra operators <strong>PYTHON</strong>.<br>
 These operators are used with numbers to create mathematical expressions. There are 3 styles of expressions: prefix, infix, postfix. You are likely to be most familiar with infix, where the operator comes between the numbers. Prefix has the operator before the numbers, and postfix after. While these other two may seem confusing to you now, they make a lot of sense in the computing world. Many early calculators operated on prefix or postfix because of how easy they are two implement when compared to infix. Infix is the only notation that requires an order of operations.<br>
-<strong>Provide Examples of the 3 forms of expressions</strong><br>
+<table>
+	<tr>
+		<th>Infix</th>
+		<th>2 + 3</th>
+		<th>(12 + 18) / (17 - 11)</th>
+		<th>(2 + 2)^2 + 5^2 * (3^3 / 1 + 1)</th>
+	</tr>
+	<tr>
+		<th>Prefix</th>
+		<th>+(2 3)</th>
+		<th>/( +(12 18) -(17 11) )</th>
+		<th>+( pow( +(2 2) 2) *( pow(5 2) +( /( pow(3 3) 1) 1 ) ) )</th>
+	</tr>
+	<tr>
+		<th>Postfix</th>
+		<th>2 3 +</th>
+		<th>12 18 + 17 11 - /</th>
+		<th> 2 2 + 2 pow 5 2 pow 3 3 pow 1 / 1 + * +</th>
+	</tr>
+</table>
+<br>
+<strong>Provide Extra on Showing How Postfix and Prefix Works</strong><br>
 We also have the logical operators, which work on booleans. There are 4 boolean operators to build boolean expressions.<br>
 <ul>
 	<li>x '&&' y ('and') results in true if both x is true and y is true. It is false in all other cases.</li>
+<table>
+	<tr>
+		<th>x</th>
+		<th>y</th>
+		<th>x && y</th>
+	</tr>
+	<tr>
+		<th>True</th>
+		<th>True</th>
+		<th>True</th>
+	</tr>
+	<tr>
+		<th>True</th>
+		<th>False</th>
+		<th>False</th>
+	</tr>
+	<tr>
+		<th>False</th>
+		<th>True</th>
+		<th>False</th>
+	</tr>
+	<tr>
+		<th>False</th>
+		<th>False</th>
+		<th>False</th>
+	</tr>
+</table>
 	<li>x '||' y ('or') results in true if at least one of the two, x or y, is true. If both x is false and y is false, the statement is false.</li>
+<table>
+	<tr>
+		<th>x</th>
+		<th>y</th>
+		<th>x || y</th>
+	</tr>
+	<tr>
+		<th>True</th>
+		<th>True</th>
+		<th>True</th>
+	</tr>
+	<tr>
+		<th>True</th>
+		<th>False</th>
+		<th>True</th>
+	</tr>
+	<tr>
+		<th>False</th>
+		<th>True</th>
+		<th>True</th>
+	</tr>
+	<tr>
+		<th>False</th>
+		<th>False</th>
+		<th>False</th>
+	</tr>
+</table>
+
 	<li>'!'x ('not') results in the opposite of x. If x is true, !x is false. If x is false, !x is true.</li>
+<table>
+	<tr>
+		<th>x</th>
+		<th>!x</th>
+	</tr>
+	<tr>
+		<th>True</th>
+		<th>False</th>
+	</tr>
+	<tr>
+		<th>False</th>
+		<th>True</th>
+	</tr>
+</table>
+
 	<li>x '^' y ('xor') results in true if x is different from y. If both x and y are true or both x and y is false, then the statement is false. x ^ y is true if only one of the two is true and the other one is false.</li>
+<table>
+	<tr>
+		<th>x</th>
+		<th>y</th>
+		<th>x ^ y</th>
+	</tr>
+	<tr>
+		<th>True</th>
+		<th>True</th>
+		<th>False</th>
+	</tr>
+	<tr>
+		<th>True</th>
+		<th>False</th>
+		<th>True</th>
+	</tr>
+	<tr>
+		<th>False</th>
+		<th>True</th>
+		<th>True</th>
+	</tr>
+	<tr>
+		<th>False</th>
+		<th>False</th>
+		<th>False</th>
+	</tr>
+</table>
+
 </ul><br>
 Finally, we have comparative operators, which turn numbers into boolean values. These are very useful for when we go over decision making in code.<br>
 <ul>
